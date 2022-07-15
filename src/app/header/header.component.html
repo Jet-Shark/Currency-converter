@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Currency Converter</a>
+    <div>
+      <table class="table table-sm mb-0">
+        <tr>
+          <th></th>
+          <th><span>Buy</span></th>
+          <th><span>Sale</span></th>
+        </tr>
+        <tr *ngFor="let rate of exchangeRates">
+          <td><strong>{{rate.ccy}} <span class="opacity-25">(UAH)</span></strong></td>
+          <td><span>{{rate.buy | number: '1.1-1'}}</span></td>
+          <td><span>{{rate.sale | number: '1.1-1'}}</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</nav>

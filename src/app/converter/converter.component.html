@@ -1,0 +1,43 @@
+<div class="row justify-content-center pt-5">
+  <div class="col-auto">
+    <div class="card mb-3" style="width: 290px;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Converter</h5>
+        <form [formGroup]="converterForm" *ngIf="converterForm">
+          <div class="row gx-3">
+            <div class="col-6" formGroupName="from">
+              <div class="mb-2">
+                <select class="form-select" formControlName="currency">
+                  <option value="UAH">UAH</option>
+                  <option *ngFor="let rate of exchangeRates" [value]="rate.ccy">{{rate.ccy}}</option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <input type="text" class="form-control" formControlName="quantity">
+                <div
+                  class="invalid-feedback d-block"
+                  *ngIf="converterForm.get('from.quantity').invalid"
+                >Numbers only</div>
+              </div>
+            </div>
+            <div class="col-6" formGroupName="to">
+              <div class="mb-2">
+                <select class="form-select" formControlName="currency">
+                  <option value="UAH">UAH</option>
+                  <option *ngFor="let rate of exchangeRates" [value]="rate.ccy">{{rate.ccy}}</option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <input type="text" class="form-control" formControlName="quantity">
+                <div
+                  class="invalid-feedback d-block"
+                  *ngIf="converterForm.get('to.quantity').invalid"
+                >Numbers only</div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
